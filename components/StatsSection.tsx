@@ -20,8 +20,8 @@ export default function StatsSection() {
   return (
     <section
       className="
-        relative w-screen max-w-none ml-[calc(50%-50vw)] 
-        py-20 bg-[#F9FAFB] overflow-hidden
+        relative w-screen max-w-none ml-[calc(50%-50vw)]
+        py-14 md:py-20 bg-[#F9FAFB] overflow-hidden
       "
     >
       {/* Элегантный soft-glow */}
@@ -29,26 +29,48 @@ export default function StatsSection() {
         <div className="absolute left-1/2 top-0 w-[900px] h-[300px] -translate-x-1/2 bg-gradient-to-b from-white/70 to-transparent blur-2xl opacity-50" />
       </div>
 
-      {/* СЕТКА ЦИФР */}
+      {/* GRID: мобилка 2x2 плитки / десктоп как было */}
       <div
         className={`
-          relative grid grid-cols-1 md:grid-cols-4 text-center 
-          gap-16 md:gap-0 
-          px-6 md:px-16 lg:px-24 xl:px-40 
+          relative
           transition-all duration-700
           ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+
+          /* DESKTOP (как у тебя) */
+          md:grid md:grid-cols-4 md:text-center
+          md:gap-0
+          md:px-16 lg:px-24 xl:px-40
+
+          /* MOBILE (красиво) */
+          grid grid-cols-2 gap-3 px-4
         `}
       >
         {stats.map((item, idx) => (
           <div
             key={idx}
-            className="relative flex flex-col items-center group py-4"
+            className="
+              relative group
+
+              /* MOBILE: премиальные карточки */
+              rounded-2xl
+              border border-slate-200/80
+              bg-white/70
+              backdrop-blur-sm
+              shadow-[0_12px_40px_rgba(0,0,0,0.06)]
+              px-4 py-5
+              flex flex-col items-center justify-center text-center
+              min-h-[108px]
+
+              /* DESKTOP: полностью как было */
+              md:rounded-none md:border-0 md:bg-transparent md:shadow-none md:px-0 md:py-4 md:min-h-0
+              md:flex md:flex-col md:items-center md:justify-center
+            "
           >
             {/* Цифры */}
             <h3
               className="
-                text-5xl font-semibold text-[#111] tracking-tight 
-                transition-all duration-300 
+                text-4xl md:text-5xl font-semibold text-[#111] tracking-tight
+                transition-all duration-300
                 group-hover:scale-[1.08]
               "
             >
@@ -56,26 +78,29 @@ export default function StatsSection() {
             </h3>
 
             {/* Подпись */}
-            <p className="mt-2 text-sm text-slate-600 tracking-wide">
+            <p className="mt-2 text-[11px] md:text-sm text-slate-600 tracking-wide leading-snug">
               {item.label}
             </p>
 
-            {/* Вертикальный делитель */}
+            {/* Вертикальный делитель (только DESKTOP, как было) */}
             {idx !== stats.length - 1 && (
               <div
                 className="
-                  hidden md:block absolute right-0 top-1/2 h-14 w-px 
-                  -translate-y-1/2 
+                  hidden md:block absolute right-0 top-1/2 h-14 w-px
+                  -translate-y-1/2
                   bg-gradient-to-b from-transparent via-slate-300 to-transparent
                 "
               />
             )}
+
+            {/* Микро-линия снизу (только MOBILE, делает дороже) */}
+            <div className="mt-4 h-px w-10 bg-slate-200/80 md:hidden" />
           </div>
         ))}
       </div>
 
       {/* Нижняя элегантная линия */}
-      <div className="mt-20 h-[1px] w-full bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-60" />
+      <div className="mt-10 md:mt-20 h-[1px] w-full bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-60" />
     </section>
   );
 }

@@ -14,3 +14,34 @@ body {
 }
 
 
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee__track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 14px;              /* меньше gap — меньше “прилипаний” визуально */
+  width: max-content;
+  animation: marquee-x 24s linear infinite;
+  will-change: transform;
+}
+
+.marquee__item {
+  flex: 0 0 auto;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

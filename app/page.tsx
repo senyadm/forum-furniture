@@ -15,8 +15,8 @@ export default function Home() {
       <StatsSection />
       <ServicesCarousel />
       <WhyChooseUs />
-      <ContactCTA />
       <StepsSection />
+      <ContactCTA />
       <TestimonialsSection />
       <ContactFormSection />
       <Footer />
