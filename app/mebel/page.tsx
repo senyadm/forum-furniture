@@ -1,17 +1,26 @@
-import ComboProjectSection from "@/components/ComboProjectSection";
-import ConsultationCTA from "@/components/ConsultationCTA";
+import BrandsMarquee from "@/components/BrandsMarquee";
+import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
+import MebelCategoriesSection from "@/components/MebelCategoriesSection";
 import MebelHero from "@/components/MebelHero";
-import ProcessSection from "@/components/ProcessSection";
+import MebelMaterialsSection from "@/components/MebelMaterialsSection";
+import MebelOrderProcessSection from "@/components/MebelOrderProcessSection";
+import MebelServicePromiseSection from "@/components/MebelServicePromiseSection";
+import MebelSourcingOptions from "@/components/MebelSourcingOptions";
 import TestimonialsSection from "@/components/TestimonialsSection";
+
 export default function MebelPage() {
   return (
     <>
       <MebelHero />
-      <ComboProjectSection />
-      <ConsultationCTA />
-      <ProcessSection />
+      <MebelCategoriesSection />
+      <MebelSourcingOptions />
+      <MebelOrderProcessSection />
+      <MebelMaterialsSection />
+      <MebelServicePromiseSection />
+      <BrandsMarquee />
       <TestimonialsSection />
+      <ContactFormSection />
       <Footer />
     </>
   );

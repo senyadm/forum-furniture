@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import QualityControlSection from "@/components/QualityControlSection";
 import RemontHero from "@/components/RemontHero";
 import RemontScopeAccordion from "@/components/RemontScopeAccordion";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import TrustBar from "@/components/TrustBar";
 
 export default function RemontPage() {
@@ -17,6 +18,7 @@ export default function RemontPage() {
       <BeforeAfterSection />
       <QualityControlSection />
       <BrandsMarquee />
+      <TestimonialsSection />
       <ContactFormSection />
       <Footer />
     </main>
